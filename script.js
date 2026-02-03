@@ -2,14 +2,14 @@ const envelope = document.getElementById("envelope");
 const messageBox = document.getElementById("message");
 const music = document.getElementById("bgMusic");
 
-const HER_NAME = "Naledi"; // change name
+const HER_NAME = "My Angel Princess"; // change name
 
 const messages = [
   `Hey ${HER_NAME} 💕`,
   "I just wanted to say…",
-  "You make my world brighter 🌸",
-  "Life feels softer with you 💫",
-  "There’s something important…"
+  "Entering our first Valentines together, an eternity to go🌸",
+  "Fake size 4 wearer",
+  "There’s something important I need to ask you…"
 ];
 
 let step = 0;
@@ -32,8 +32,8 @@ envelope.addEventListener("click", () => {
   } else {
     messageBox.innerHTML = `
       <h2>Will you be my Valentine? 💖</h2>
-      <button onclick="yes()">YES 💕</button>
-      <button id="noBtn">No 😅</button>
+      <button onclick="yes()">YES YES YES 💕</button>
+      <button id="noBtn">NO 😅</button>
     `;
     setTimeout(runNoButton, 100);
   }
@@ -51,7 +51,15 @@ function runNoButton() {
 function yes() {
   document.body.innerHTML = `
     <h1 style="text-align:center;margin-top:40vh;color:#ff4d88;">
-      YAYYYY 💖💖💖
+      It's been a little over a year since I first laid eyes on you and I'm yet to grow tired of your eyes resting on mine.
+      You are my wildest dream come true.
+      From how you stay calm when it's all falling apart, to the way your voice sounds when you're merely speaking.
+      Everything about you draws me in.
+      I know GOD loves me so much HE blessing me with you.
+      You are deeply adored my angel.
+      By me, by the GOD who made you, by my heart that grows soft for you. 
+      I thank GOD for you, the woman you are and the man I am because of you.
+      I've found my good thing💖
     </h1>
   `;
 }
