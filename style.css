@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+}
+
+#musicHint {
+  position: fixed;
+  top: 15px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #ff4d88;
+}
+
+.envelope {
+  width: 90px;
+  height: 60px;
+  background: #ff4d88;
+  position: absolute;
+  border-radius: 8px;
+  cursor: pointer;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.envelope::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 45px solid transparent;
+  border-right: 45px solid transparent;
+  border-top: 30px solid #ff77a9;
+}
+
+@keyframes float {
+  0% { transform: translate(-50%, -50%); }
+  50% { transform: translate(-50%, -58%); }
+  100% { transform: translate(-50%, -50%); }
+}
+
+.message {
+  position: fixed;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  padding: 20px 25px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 18px;
+  max-width: 80%;
+}
+
+.hidden {
+  display: none;
+}
+
+button {
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #ff4d88;
+  color: white;
+  font-size: 16px;
+}
+
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
