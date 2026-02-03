@@ -1,3 +1,38 @@
+window.addEventListener("load", () => {
+const polaroids = document.querySelectorAll(".polaroid");
+const preloader = document.getElementById("preloader");
+const music = document.getElementById("bgMusic");
+
+let index = 0;
+
+function showNext() {
+if (index > 0) {
+polaroids[index - 1].style.opacity = 0;
+}
+
+if (index < polaroids.length) {
+const current = polaroids[index];
+current.style.opacity = 1;
+current.style.transform = "scale(1)";
+index++;
+setTimeout(showNext, 1400);
+} else {
+setTimeout(() => {
+preloader.style.transition = "opacity 1s ease";
+preloader.style.opacity = 0;
+
+// 🎶 START MUSIC AFTER PRELOADER
+music.play();
+
+setTimeout(() => preloader.remove(), 1000);
+}, 800);
+}
+}
+
+showNext();
+});
+
+
 const envelope = document.getElementById("envelope");
 const messageBox = document.getElementById("message");
 const music = document.getElementById("bgMusic");
