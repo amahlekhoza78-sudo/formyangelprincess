@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   height: 100vh;
@@ -6,46 +10,34 @@ body {
   overflow: hidden;
 }
 
+/* PRELOADER */
 #preloader {
-position: fixed;
-inset: 0;
-background: #ffeef5;
-display: flex;
-justify-content: center;
-align-items: center;
-z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: #ffeef5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
 }
 
 .loader-images {
-width: 80%;
-max-width: 300px;
-position: relative;
-}
-
-.loader-img {
-  width: 100%;
-  border-radius: 20px;
-  display: block;  
-}
-
-.loader-images {
-width: 90%;
-max-width: 320px;
-position: relative;
+  width: 85%;
+  max-width: 320px;
+  position: relative;
 }
 
 .polaroid {
-  background: white;
-  padding: 10px 10px 25px;
-  border-radius: 8px;
-  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
   position: absolute;
   width: 100%;
+  background: white;
+  padding: 10px 10px 22px;
+  border-radius: 10px;
+  box-shadow: 0 20px 30px rgba(0,0,0,0.2);
   opacity: 0;
-  transform: scale(0.95);
+  transform: scale(0.95) rotate(var(--r));
   transition: opacity 1s ease, transform 1s ease;
-  text-align: center;
-  min-height: 320px;
 }
 
 .polaroid img {
@@ -54,31 +46,17 @@ position: relative;
   display: block;
 }
 
-.polaroid span {
-font-size: 14px;
-color: #ff4d88;
-}
-
-#musicHint {
-  position: fixed;
-  top: 15px;
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  color: #ff4d88;
-}
-
+/* ENVELOPE */
 .envelope {
   width: 90px;
   height: 60px;
   background: #ff4d88;
   position: absolute;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
   animation: float 2.5s ease-in-out infinite;
 }
 
@@ -98,33 +76,73 @@ color: #ff4d88;
   100% { transform: translate(-50%, -50%); }
 }
 
+/* MESSAGE */
 .message {
   position: fixed;
-  bottom: 25%;
+  bottom: 20%;
   left: 50%;
   transform: translateX(-50%);
   background: white;
-  padding: 20px 25px;
-  border-radius: 20px;
+  padding: 22px;
+  border-radius: 22px;
   text-align: center;
   font-size: 18px;
-  max-width: 80%;
+  max-width: 85%;
+  font-family: 'Playfair Display', serif;
+  animation: fadeUp 0.6s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
 }
 
 .hidden {
   display: none;
 }
 
+/* BUTTONS */
 button {
   padding: 12px 20px;
   margin: 10px;
   border: none;
-  border-radius: 20px;
+  border-radius: 25px;
   background: #ff4d88;
   color: white;
   font-size: 16px;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* FINAL SCREEN */
+#finalScreen {
+  text-align: center;
+  padding: 30px;
+  animation: fadeUp 1s ease;
+}
+
+#finalScreen h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 34px;
+  color: #ff4d88;
+}
+
+#finalScreen p {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* MUSIC HINT */
+#musicHint {
+  position: fixed;
+  top: 12px;
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #ff4d88;
+}
+
+/* HEARTS */
 .heart {
   position: absolute;
   font-size: 20px;
