@@ -61,6 +61,7 @@ body {
   font-size: 18px;
   color: #ff4d88;
   margin-top: 10px;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ===========================
@@ -109,7 +110,7 @@ body {
   text-align: center;
   font-size: 18px;
   max-width: 85%;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif; /* changed from Playfair Display */
   animation: fadeUp 0.6s ease;
 }
 
@@ -147,20 +148,23 @@ button {
   padding: 2rem;
   text-align: center;
   color: #ff4d88;
+  font-family: 'Poppins', sans-serif; /* uniform font */
   animation: fadeUp 1s ease;
 }
 
 #finalScreen h1 {
-  font-family: 'Dancing Script', cursive;
+  font-family: 'Poppins', sans-serif; /* changed from Dancing Script */
+  font-weight: 600;
   font-size: 2.5rem;
   color: #ff4d88;
   margin-bottom: 1rem;
 }
 
 #finalScreen p {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins', sans-serif; /* uniform font */
   font-size: 18px;
-  line-height: 1.7;
+  line-height: 2;  /* more spacing for readability */
+  margin-bottom: 0.8rem; /* space between each line */
 }
 
 /* ===========================
@@ -173,6 +177,7 @@ button {
   text-align: center;
   font-size: 14px;
   color: #ff4d88;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ===========================
