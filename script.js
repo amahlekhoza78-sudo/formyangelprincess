@@ -19,8 +19,11 @@ window.addEventListener("load", () => {
       current.style.transform = "scale(1)";
 
       // Start music immediately with the first image
-      if(index === 0) {
-        music.play();
+      if (index === 0) {
+        music.play().catch(() => {
+          // some browsers block autoplay, start on first click instead
+          document.body.addEventListener("click", () => music.play(), { once: true });
+        });
       }
 
       index++;
@@ -79,7 +82,7 @@ envelope.addEventListener("click", () => {
 });
 
 /* ===========================
-   TYPEWRITER WITH HEARTS
+   TYPEWRITER FUNCTION
 =========================== */
 function typeWriter(text, element, speed = 60) {
   let i = 0;
@@ -108,27 +111,53 @@ function runNoButton() {
    YES BUTTON FINAL MESSAGE
 =========================== */
 function yes() {
-  const finalText = `
-    It’s been a little over a year since I first laid eyes on you and I’m yet to grow tired of your eyes resting on mine.
-    You are my wildest dream come true.
-    From how you stay calm when it’s all falling apart, to the way your voice sounds when you’re merely speaking.
-    Everything about you draws me in.
-    I know God loves me so much he blessed me with you.
-    You are so deeply adored my angel.
-    By me, by the God who made you, by my heart that grows soft for you.
-    I thank God for you, the woman you are and the man I am becoming because of you.
-    I’ve found my good thing💗
-  `;
+  const finalSentences = [
+    "It’s been a little over a year since I first laid eyes on you and I’m yet to grow tired of your eyes resting on mine.",
+    "You are my wildest dream come true.",
+    "From how you stay calm when it’s all falling apart, to the way your voice sounds when you’re merely speaking.",
+    "Everything about you draws me in.",
+    "I know God loves me so much he blessed me with you.",
+    "You are so deeply adored my angel.",
+    "By me, by the God who made you, by my heart that grows soft for you.",
+    "I thank God for you, the woman you are and the man I am becoming because of you.",
+    "I’ve found my good thing 💗"
+  ];
 
   document.body.innerHTML = `
     <div id="finalScreen">
       <h1>YOU SAID YES 💗</h1>
-      <p id="final-message"></p>
+      <div id="final-message"></div>
     </div>
   `;
 
   const finalMessage = document.getElementById("final-message");
-  typeWriter(finalText, finalMessage, 25); // slower typing for longer paragraph
+
+  // Function to type sentences line by line
+  function typeLineByLine(lines, el, lineSpeed = 25, delayBetween = 700) {
+    let lineIndex = 0;
+
+    function typeSentence() {
+      if (lineIndex >= lines.length) return;
+
+      const line = document.createElement("p");
+      el.appendChild(line);
+
+      let charIndex = 0;
+      const interval = setInterval(() => {
+        line.textContent += lines[lineIndex].charAt(charIndex);
+        charIndex++;
+        if (charIndex >= lines[lineIndex].length) {
+          clearInterval(interval);
+          lineIndex++;
+          setTimeout(typeSentence, delayBetween); // pause before next line
+        }
+      }, lineSpeed);
+    }
+
+    typeSentence();
+  }
+
+  typeLineByLine(finalSentences, finalMessage, 25, 700);
 }
 
 /* ===========================
