@@ -123,16 +123,23 @@ function yes() {
     "I’ve found my good thing 💗"
   ];
 
-  document.body.innerHTML = `
-    <div id="finalScreen">
-      <h1>YOU SAID YES 💗</h1>
-      <div id="final-message"></div>
-    </div>
+  // Hide everything else instead of removing the body
+  document.getElementById("preloader")?.remove(); // remove preloader
+  document.getElementById("envelope").style.display = "none";
+  document.getElementById("message").style.display = "none";
+
+  // Add final screen without touching audio
+  const finalScreen = document.createElement("div");
+  finalScreen.id = "finalScreen";
+  finalScreen.innerHTML = `
+    <h1>YOU SAID YES 💗</h1>
+    <div id="final-message"></div>
   `;
+  document.body.appendChild(finalScreen);
 
   const finalMessage = document.getElementById("final-message");
 
-  // Function to type sentences line by line
+  // Type line by line
   function typeLineByLine(lines, el, lineSpeed = 25, delayBetween = 700) {
     let lineIndex = 0;
 
@@ -159,6 +166,7 @@ function yes() {
 
   typeLineByLine(finalSentences, finalMessage, 25, 700);
 }
+
 
 /* ===========================
    FLOATING HEARTS
