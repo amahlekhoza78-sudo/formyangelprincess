@@ -162,7 +162,7 @@ button {
 
 #finalScreen p {
   font-family: 'Poppins', sans-serif; /* uniform font */
-  font-size: 18px;
+  font-size: 15px;
   line-height: 2;  /* more spacing for readability */
   margin-bottom: 0.8rem; /* space between each line */
 }
